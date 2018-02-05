@@ -1,15 +1,8 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Hello Students</title>
-</head>
-<body>
+{{#partial "content"}}
     {{#if username }}
         <h1>Welcome {{ username }}</h1>
+
+        <p>View <a href="/ideas">all course ideas</a>.</p>
     {{ else }}
         <h1>Welcome Students!</h1>
 
@@ -18,6 +11,6 @@
             <button>Sign in</button>
         </form>
     {{/if}}
+{{/partial}}
 
-</body>
-</html>
+{{> base.hbs}}
