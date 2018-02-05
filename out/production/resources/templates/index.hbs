@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hello Students</title>
+</head>
+<body>
+    {{#if username }}
+        <h1>Welcome {{ username }}</h1>
+    {{ else }}
+        <h1>Welcome Students!</h1>
+
+        <form action="/sign-in" method="post">
+            <input type="text" placeholder="What's your user name?" name="username"/>
+            <button>Sign in</button>
+        </form>
+    {{/if}}
+
+</body>
+</html>
