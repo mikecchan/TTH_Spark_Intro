@@ -2,9 +2,8 @@ package com.teamtreehouse.courses.model;
 
 import com.github.slugify.Slugify;
 
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.io.IOException;
+import java.util.*;
 
 public class CourseIdea {
     private String slug;
@@ -12,19 +11,12 @@ public class CourseIdea {
     private String creator;
     private Set<String> voters;
 
-    public String getSlug() {
-        return slug;
-    }
-
-    public void setSlug(String slug) {
-        this.slug = slug;
-    }
-
     public CourseIdea(String title, String creator) {
         voters = new HashSet<>();
         this.title = title;
         this.creator = creator;
         Slugify slugify = new Slugify();
+        slug = slugify.slugify(title);
     }
 
     public String getTitle() {
@@ -50,6 +42,18 @@ public class CourseIdea {
 
     public int getVoteCount(){
         return voters.size();
+    }
+
+    public String getSlug() {
+        return slug;
+    }
+
+    public void setSlug(String slug) {
+        this.slug = slug;
+    }
+
+    public List<String> getVoters() {
+        return new ArrayList<>(voters);
     }
 
     @Override
